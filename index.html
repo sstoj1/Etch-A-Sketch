@@ -2,26 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Etch-A-Sketch</title>
-    <link rel="icon" href="resources/CrayonFavicon.PNG" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Etch-A-Sketch</title>
+    <link rel="icon" href="resources/CrayonFavicon-removebg-preview.png" />
+
     <link rel="stylesheet" href="index.css" />
     <script src="index.js"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap");
-      body {
-        font-family: "Bubblegum Sans", cursive;
-        color: rgba(0, 0, 0, 0.8);
-        font-weight: 400;
-        line-height: 1.58;
-        letter-spacing: -0.003em;
-        font-size: 30px;
-        padding: 20px;
-      }
-    </style>
   </head>
   <body>
     <h1>Etch-A-Sketch</h1>
-    <div id="grid-container"></div>
+    <div id="container">
+      <div id="controls-container">
+        <button type="button">Color</button>
+        <button type="button">Eraser</button>
+        <button type="button">Clear</button>
+      </div>
+      <div id="grid-container">
+        <button type="button">Color</button>
+      </div>
+    </div>
   </body>
 </html>
