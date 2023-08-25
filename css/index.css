@@ -46,6 +46,11 @@ input[type="button"] {
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
+input[type="button"]:hover {
+  transition-duration: 0.3s;
+  transform: scale(1.15);
+}
+
 input[type="range"] {
   /* gets rid of default styling */
   appearance: unset;
