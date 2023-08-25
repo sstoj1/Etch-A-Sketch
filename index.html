@@ -3,24 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Etch-A-Sketch</title>
-    <link rel="icon" href="resources/CrayonFavicon-removebg-preview.png" />
-
-    <link rel="stylesheet" href="index.css" />
-    <script src="index.js"></script>
+    <link rel="icon" href="media/CrayonFavicon-removebg-preview.png" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <script src="scripts/index.js"></script>
   </head>
   <body>
     <h1>Etch-A-Sketch</h1>
-    <div id="container">
-      <div id="controls-container">
-        <button type="button">Color</button>
-        <button type="button">Eraser</button>
-        <button type="button">Clear</button>
+    <main>
+      <div class="settings">
+        <input id="color-picker" type="color" value="black" />
+        <input type="button" value="Color" />
+        <input type="button" value="Rainbow" />
+        <input type="button" value="Eraser" />
+        <input type="button" value="Clear" />
+        <p id="slider-value">16 x 16</p>
+        <input
+          id="grid-slider"
+          type="range"
+          value="16"
+          min="1"
+          max="64"
+          oninput="updateGridValue(this.value)"
+        />
       </div>
-      <div id="grid-container">
-        <button type="button">Color</button>
-      </div>
-    </div>
+      <div id="sketch-container"></div>
+    </main>
+    <footer></footer>
   </body>
 </html>
