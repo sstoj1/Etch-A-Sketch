@@ -12,14 +12,30 @@
     />
     <script src="scripts/index.js"></script>
   </head>
-  <body>
+  <!-- NOTE: onload works best when it's on the body element -->
+  <body onload="resetGrid()">
     <h1>Etch-A-Sketch</h1>
     <main>
       <div class="settings">
         <input id="color-picker" type="color" />
-        <input type="button" value="Color" />
-        <input type="button" value="Rainbow" />
-        <input type="button" value="Eraser" />
+        <input
+          id="color-button"
+          type="button"
+          value="Color"
+          onclick="setCurrentMode('color')"
+        />
+        <input
+          id="rainbow-button"
+          type="button"
+          value="Rainbow"
+          onclick="setCurrentMode('rainbow')"
+        />
+        <input
+          id="erase-button"
+          type="button"
+          value="Eraser"
+          onclick="setCurrentMode('eraser')"
+        />
         <input
           id="reset-button"
           type="button"
@@ -36,296 +52,7 @@
           oninput="updateGridValue(this.value)"
         />
       </div>
-      <div id="sketch-container">
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-        <div class="row">
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-          <div class="sketch-cell" onclick="color()"></div>
-        </div>
-      </div>
+      <div id="sketch-container"></div>
     </main>
     <footer></footer>
   </body>
