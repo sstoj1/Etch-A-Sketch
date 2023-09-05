@@ -46,6 +46,11 @@ function resetGrid() {
   document.getElementById("grid-slider").value = sliderDefaultValue;
 }
 
+/**
+ * Switches the color mode to what the user chooses.
+ *
+ * @param {} mode
+ */
 function setCurrentMode(mode) {
   switch (mode) {
     case "color":
