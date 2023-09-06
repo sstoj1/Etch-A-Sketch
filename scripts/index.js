@@ -1,6 +1,8 @@
-let sliderDefaultValue = 16;
-let currentColor = "";
-let currentMode = "";
+const sliderDefaultValue = 16;
+const colorDefault = "000000";
+const modeDefault = "color";
+var currentColor = "";
+var currentMode = "";
 
 /**
  * Updates text of the <p> on top of the slider to the
@@ -38,12 +40,14 @@ function setGrid(sliderValue) {
 }
 
 /**
- * Resets the sketch grid to 16x16
+ * Resets the sketch grid to 16x16 and default color settings.
  */
 function resetGrid() {
   document.getElementById("sketch-container").replaceChildren();
   updateGridValue(sliderDefaultValue);
   document.getElementById("grid-slider").value = sliderDefaultValue;
+  currentColor = colorDefault;
+  setCurrentMode(modeDefault);
 }
 
 /**
@@ -58,18 +62,41 @@ function setCurrentMode(mode) {
       document.getElementById("rainbow-button").style.backgroundColor =
         "#7f97a2";
       document.getElementById("erase-button").style.backgroundColor = "#7f97a2";
+      currentMode = "color";
       break;
     case "rainbow":
       document.getElementById("rainbow-button").style.backgroundColor =
         "#a86b5b";
       document.getElementById("erase-button").style.backgroundColor = "#7f97a2";
       document.getElementById("color-button").style.backgroundColor = "#7f97a2";
+      currentMode = "rainbow";
       break;
     case "eraser":
       document.getElementById("erase-button").style.backgroundColor = "#a86b5b";
       document.getElementById("color-button").style.backgroundColor = "#7f97a2";
       document.getElementById("rainbow-button").style.backgroundColor =
         "#7f97a2";
+      currentMode = "eraser";
+      currentColor = "#f5f5f3";
+      console.log(currentColor);
       break;
   }
+}
+
+/**
+ * Sets the current value to that of the color input if the mode is on "color".
+ *
+ * @param {*} pickerValue
+ */
+function setColor(pickerValue) {
+  if (currentMode === "color") {
+    currentColor = pickerValue;
+    console.log(currentColor);
+  }
+}
+
+//wip
+function color() {
+  document.getElementsByClassName("sketch-cell").target.style.backgroundColor =
+    currentColor;
 }

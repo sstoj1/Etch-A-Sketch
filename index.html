@@ -17,7 +17,7 @@
     <h1>Etch-A-Sketch</h1>
     <main>
       <div class="settings">
-        <input id="color-picker" type="color" />
+        <input id="color-picker" type="color" oninput="setColor(this.value)" />
         <input
           id="color-button"
           type="button"
