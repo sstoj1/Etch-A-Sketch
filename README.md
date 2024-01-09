@@ -6,6 +6,6 @@ Project from The Odin Project.
 
 ## Links
 
-[Check it out here!](https://sstoj1.github.io/Etch-A-Sketch/)
+[Check it out here!](https://stojanovski-stefan.github.io/Etch-A-Sketch/)
 
 ## Screenhots
