@@ -16,8 +16,13 @@
   <body onload="resetGrid()">
     <h1>Etch-A-Sketch</h1>
     <main>
-      <div class="settings">
-        <input id="color-picker" type="color" oninput="setColor(this.value)" />
+      <section class="settings">
+        <input
+          id="color-picker"
+          type="color"
+          value=""
+          oninput="setColor(this.value)"
+        />
         <input
           id="color-button"
           type="button"
@@ -51,9 +56,8 @@
           max="64"
           oninput="updateGridValue(this.value)"
         />
-      </div>
+      </section>
       <div id="sketch-container"></div>
     </main>
-    <footer></footer>
   </body>
 </html>

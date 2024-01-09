@@ -48,6 +48,28 @@ function resetGrid() {
   document.getElementById("grid-slider").value = sliderDefaultValue;
   currentColor = colorDefault;
   setCurrentMode(modeDefault);
+
+  // THIS LINE WORKS
+  document.querySelector("#color-picker").value = "#000000";
+
+  document
+    .querySelector("#color-picker")
+    .addEventListener("input", updateFirst, false);
+  document
+    .querySelector("#color-picker")
+    .addEventListener("change", updateAll, false);
+}
+
+function updateFirst(event) {
+  if (document.querySelector("div")) {
+    document.querySelector("div").style.color = event.target.value;
+  }
+}
+
+function updateAll(event) {
+  document.querySelector("div").forEach((div) => {
+    div.style.color = event.target.value;
+  });
 }
 
 /**
@@ -93,6 +115,12 @@ function setColor(pickerValue) {
     currentColor = pickerValue;
     console.log(currentColor);
   }
+}
+
+function watchColorPicker(event) {
+  document.querySelector("div").forEach((div) => {
+    div.style.color = event.target.value;
+  });
 }
 
 //wip
